@@ -7,10 +7,27 @@ import { Component } from "@angular/core";
   <div>
     <h1>Upcoming Angular Events</h1>
     <hr/>
-    <event-thumbnail [event]="event1"></event-thumbnail>
+    <!-- (eventClick)="handleEventClicked($event)"  -->
+
+    <!--
+      Template Reference Variable (TRV)
+      #thumbnail
+     -->
+    <event-thumbnail  [event]="event1"></event-thumbnail>
   </div>
-`
-})
+  <!-- Example of using TRV
+  <h3>{{thumbnail.someProperty}}</h3>
+
+  <button class="btn btn-primary" (click)="thumbnail.logFoo()">logging foo!</button> -->
+
+  <!--
+    Local styling by Angular, goes below end template string, separated by a comma
+    new template string is escaped so comment can be made
+    styles: [\`
+    .well div { color: red; }
+  \`] -->
+
+`})
 
 export class EventsListComponent {
   event1 = {
@@ -26,5 +43,9 @@ export class EventsListComponent {
       country: 'England'
     }
   }
+
+  // handleEventClicked(data) {
+  //   console.log('recieved', data)
+  // }
 
 }
